@@ -10,5 +10,9 @@ jobs:
       - name: docker login
         run:  echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
         
-      - name: pull
-        run: docker pull ghcr.io/entdwivedine/alpine:latest
+     # - name: pull
+      #  run: docker pull ghcr.io/entdwivedine/alpine:latest
+      
+      - name: curl
+        run: curl --location --request GET "https://api.github.com/orgs/entdwivedine/packages?package_type=container&visibility=internal" --header "Authorization:Bearer ${{ secrets.GITHUB_TOKEN }}"
+       
