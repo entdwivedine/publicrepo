@@ -14,5 +14,5 @@ jobs:
       #  run: docker pull ghcr.io/entdwivedine/alpine:latest
       
       - name: curl
-        run: curl --location --request GET "https://api.github.com/orgs/entdwivedine/packages?package_type=container&visibility=internal" --header "Authorization:Bearer ${{ secrets.GITHUB_TOKEN }}"
+        run: curl --location --verbose --request GET "https://api.github.com/orgs/entdwivedine/packages?package_type=container&visibility=internal" --header "Authorization:Bearer ${{ secrets.GITHUB_TOKEN }}"
        
