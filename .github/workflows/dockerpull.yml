@@ -1,0 +1,13 @@
+name: docker pull
+on:
+  push:
+   
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: docker login
+        run:  echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+        
+      - name: pull
+        run: docker pull ghcr.io/entdwivedine/alpine:latest
